@@ -1,0 +1,33 @@
+{
+    "name": "HEXA ROS 2 Jazzy Development",
+
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".."
+    },
+
+    "workspaceFolder": "/workspaces/HEXA",
+
+    "mounts": [
+        "source=hexa-platformio-build,target=/workspaces/HEXA/firmware/.pio,type=volume"
+    ],
+
+    "runArgs": [
+        "-p",
+        "8888:8888/udp"
+    ],
+
+    "containerEnv": {
+        "ROS_DOMAIN_ID": "0"
+    },
+
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode.cpptools",
+                "ms-python.python",
+                "platformio.platformio-ide"
+            ]
+        }
+    }
+}
